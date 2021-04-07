@@ -1,8 +1,4 @@
-setInterval(()=>{
-    var dt = new Date();
-    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-    document.getElementsByClassName('sys-uptime')[0].innerText = time;
-},1000)
+
 
 function accordian(id) {
     var x = document.getElementById(id);

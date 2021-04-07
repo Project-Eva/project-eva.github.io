@@ -1,3 +1,12 @@
 html,body,h1,h2,h3,h4,h5 {
     font-family: "Raleway", sans-serif
 }
+
+.w3-hover-border{
+    background: transparent;
+    border: 1px solid white;
+}
+
+.w3-animation{
+    transition: 0.4s ease;
+}
