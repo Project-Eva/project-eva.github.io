@@ -10,3 +10,12 @@ html,body,h1,h2,h3,h4,h5 {
 .w3-animation{
     transition: 0.4s ease;
 }
+
+.w3-stat-card{
+    height: 140px;
+}
+
+.w3-hover-transparent:hover{
+    background: transparent !important;
+    color: black !important;
+}

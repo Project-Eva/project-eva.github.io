@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Home Automation | AEEE</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../assets/css/w3.css">
+  <link rel="stylesheet" href="../assets/css/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/file-upload.css">
+</head>
+
+<body class="w3-light-grey">
+
+  <!-- Top container -->
+  <div class="w3-bar w3-top w3-indigo w3-large w" style="z-index:4">
+    <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
+        class="fa fa-bars" title="Menu"></i> &nbsp;</button>
+    <span class="w3-bar-item w3-right">HomeAutomation</span>
+  </div>
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse " style="z-index: 3; width: 250px; display: none;box-shadow:  0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);"
+    id="mySidebar"><br>
+    <div class="w3-container w3-row">
+      <div class="w3-col s4">
+        <img src="../index_files/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+      </div>
+      <div class="w3-col s8 w3-bar">
+        <span class="w3-large"><b id="holder/name"></b></span><br>
+        <small><i id="holder/location"></i></small><br>
+        <!-- <a href="#" class="w3-bar-item w3-button w3-hover-indigo w3-circle w3-right "><i class="w3-small fa fa-pencil"></i></a> -->
+      </div>
+    </div>
+    <div class="w3-bar-block w3-margin-top">
+      <a href="../" class="w3-bar-item w3-animation w3-hover-indigo w3-button w3-padding "><i class="fa fa-users fa-fw"></i>&nbsp; Dashboard</a>
+      <a href="../devices/" class="w3-bar-item w3-animation w3-hover-indigo w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>&nbsp; Device Control</a>
+      <a href="#" class="w3-twothird w3-bar-item  w3-animation w3-hover-indigo w3-button ">
+        <i class="fa fa-user-circle-o fa-fw"></i>&nbsp; Account
+        <span href="#" onclick="location.replace('../account/')" title="Add New Bill" class="w3-right w3-hover-white w3-animation w3-circle" style="padding: 3px 4px;" ><i class="fa fa fa-pencil fa-fw"></i></span>
+      </a>      
+      <a href="#" class="w3-twothird w3-bar-item  w3-animation w3-hover-indigo w3-purple w3-button ">
+        <i class="fa fa-money fa-fw"></i>&nbsp; Finance
+        <span href="#" onclick="location.replace('../scan/')" title="Add New Bill" class="w3-right w3-hover-white w3-animation w3-circle" style="padding: 3px 4px;" ><i class="fa fa-camera fa-fw"></i></span>
+      </a>
+      <a href="../insights/" class="w3-bar-item w3-animation w3-hover-indigo w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>&nbsp; Insights</a>
+      <a href="#" class="w3-bar-item w3-animation w3-hover-indigo w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp; Logs</a>
+      <a href="#" class="w3-bar-item w3-animation w3-hover-indigo w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a><br><br>
+    </div>
+    <div class="w3-bottom w3-container w3-padding">
+      <small>HomeAutomation | AEEE Project</small>
+    </div>
+  </nav>
+
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor: pointer; display: none;"
+    title="close side menu" id="myOverlay"></div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:250px;margin-top:43px;">
+
+    <!-- Header -->
+    <header class="w3-container w3-center" style="padding-top:22px">
+      <h5><b><i class="fa fa-camera"></i> Scan Receipts</b></h5>
+    </header>
+
+    
+    <div class="w3-container w3-margin-top">
+      <!-- OCR File Input -->
+      <div class="drop-zone w3-half">
+        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+        <input type="file" name="myFile" class="drop-zone__input ocr-input">
+      </div>
+      <!-- OCR Progress -->
+      <div class="w3-container w3-half" style="padding-bottom: 140px;">
+        <p>Status : <span class="w3-text-gray ocr-progress-text">Document Scanner Ready</span></p>
+        <div class="w3-border w3-animation ocr-progress-bar" style="opacity: 0;">
+          <div class="w3-grey ocr-progress " style="height:24px;width:0%;"></div>
+        </div>
+        <!-- OCR Results -->
+        <p class="w3-text-gray ocr-text" ></p>
+      </div>
+
+    </div>
+      
+      
+    <!-- End page content -->
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script> 
+  <script src="../assets/js/custom.js"></script>
+  <script src="../assets/js/sidebar.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/fire-cards.js"></script>
+  <script src="../assets/js/file-upload.js"></script>
+  <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+    <script>
+      Text=false;
+      const recognize = function(evt){
+        const files = evt.target.files;
+
+        Tesseract.recognize(
+        files[0],
+        'eng',
+        { logger: m => {
+          console.log(m);
+          Progress(m.progress,m.status);
+        } }
+      ).then(({ data: { text } }) => {
+        console.log(text);
+        Text=text;
+        GetDates()
+      })
+      }
+      const elm = document.getElementsByClassName('drop-zone__input')[0];
+      elm.addEventListener('change', recognize);
+      
+      function Progress(progress,text){
+        if(progress>0){
+          document.getElementsByClassName('ocr-progress-bar')[0].style.opacity=1;
+        }else{
+          document.getElementsByClassName('ocr-progress-bar')[0].style.opacity=0;
+        }
+        document.getElementsByClassName('ocr-progress')[0].style.width=(progress*100)+"%"
+        document.getElementsByClassName('ocr-progress-text')[0].innerText=text
+      }
+      Text=`
+      WO e e
+Denand/Disconriect jon flot 128
+(‘Electricity Act 2003 P 56/
+Custoner Care 1912
+HulankunathukaSect 101
+0487-220023¢
+KSE&I.*G‘SIM JOMRECREL ““1 1
+Il
+M
+CH561 L0009 38
+Bille Segoan210009
+Gom. 1+ 8567478
+Hane + E0 HaNoJ
+$/0 MTONYEDRKKATTU
+Pole ATRE/3
+Trans SEEKEND
+tieters 1306719
+oill rea : B01/24/50
+Bill Date * 24/12/2020
+Due Date - 0/01/2021
+Discom Dt: 19/01/2021
+Tariff < LT-1A Don
+Purpose * Dorestic
+§ Denosit : 873
+Heter (it Status O
+Load 1Kk
+C Denand < 0.4 i
+Phase ]
+Prv Rd 0t ¢ 23/10/2020
+Prs Rd Dt ¢ 20/12/2020
+Kt Rd(ONF): 1
+i 3
+‘Prv Paid Dt - 02-11-2020
+Pry Paid fint * 257
+Unit Curr Prev Cons Ay
+Kif/a/1 2686 2742 145 128
+Fixed Charges 5000
+Heter Rent ¢ 142
+Energy Charges 485 20
+Duty 1852
+fovt Subsidies : -100.00
+Bill Anount 2 an
+Payable : 337 00
+Renarks
+Htr Rent: 12 CGST 8% 105 S6ST % 1.08
+CESS 15:0
+%4 Unling httes bl
+SHED dosea )
+SN Heter finade it
+BRSNS 103 /e
+23-12-2000 Baisc ol`
+      function GetDates(){
+        lines = Text.split('\n');
+        dates = []
+        amounts=[]
+        biller=false
+        for (i=0; i<lines.length;i++){
+          date = lines[i].match(/[0-9][0-9][\/-][0-9]{2}[\/-][0-9]{4}/)
+          if(date && lines[i].toLowerCase().includes('bill')){
+            Progress(1,"Processed Text")
+            dates.push(date[0])
+          }
+          if((lines[i].toLowerCase().includes("bill") || lines[i].toLowerCase().includes("payable") || lines[i].toLowerCase().includes("amount") ) && (lines[i].match(/\s[0-9]+\s/)!=null) ){
+            amounts.push(lines[i].match(/\s[0-9]+\s/)[0]*1)
+          }
+          if(lines[i].toLowerCase().includes('kseb')){
+            biller="KSEB"
+          }
+        }
+        console.log(dates,amounts,biller)
+        PrintResults("------------------------")
+        if(biller){
+          PrintResults("Biller: "+biller)
+        }else{
+          PrintResults("Biller: <Not scanned>")
+        }
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+
+        if(dates.length){
+          dates = [...new Set(dates)].sort()
+          var parts = dates[0].split("/");
+          var dt = new Date(parseInt(parts[2], 10),
+                    parseInt(parts[1], 10) - 1,
+                    parseInt(parts[0], 10));
+          PrintResults("Bill Date: "+ dates[0])
+        }else{
+          PrintResults("Bill Date: <Not scanned>")
+        }
+
+        if(amounts.length){
+          amounts = [...new Set(amounts)].reverse()
+          PrintResults("Amount: Rs. "+amounts[0]+".0/-")
+        }else{
+          PrintResults("Amount: <Not scanned>")
+        }
+        PrintResults("------------------------")
+      }
+
+      function PrintResults(text){
+        document.getElementsByClassName('ocr-text')[0].innerText+=text+"\n"
+      }
+
+    </script>
+</body>
+</html>
