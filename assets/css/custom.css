@@ -19,3 +19,133 @@ html,body,h1,h2,h3,h4,h5 {
     background: transparent !important;
     color: black !important;
 }
+
+.w3-nav-current{
+    color: white;
+    background: #2471A3;
+    border-right: 6px solid #5499C7 !important;
+}
+
+.w3-nav-current:hover{
+    color: white !important;
+    background: #2980B9 !important;
+    border-right: 6px solid #5499C7;
+}
+
+.w3-nav{
+    color: white;
+}
+
+.w3-nav:hover{
+    background: #1A5276 !important;
+    color: white !important;
+}
+
+.w3-d-blue{
+    background-color: #154360 ;
+    color: white  !important;
+}
+
+.w3-hover-d-blue:hover{
+    background-color: #2980B9 !important;
+    color: white  !important;
+}
+
+.w3-icon-only{
+    font-size: 24px!important;
+    padding: 10px;
+}
+
+/* Voice Listening */
+
+
+.voice-eva {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 90px;
+    border-radius: 100%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+  }
+  .voice-eva i {
+    position: relative;
+    font-size: 25px;
+
+  }
+  .voice-active::after {
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    border: 8px solid rgb(37 114 165);
+    border-radius: 100%;
+    -webkit-animation-name: ripple;
+    animation-name: ripple;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+    animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+    z-index: -1;
+  }
+  .voice-active::before {
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    border: 8px solid rgb(37 114 165);
+    border-radius: 100%;
+    -webkit-animation-name: ripple;
+    animation-name: ripple;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+    animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+    z-index: -1;
+  }
+  
+  @-webkit-keyframes ripple {
+    from {
+      opacity: 1;
+      transform: scale3d(0.75, 0.75, 1);
+    }
+    to {
+      opacity: 0;
+      transform: scale3d(1.5, 1.5, 1);
+    }
+  }
+  
+  @keyframes ripple {
+    from {
+      opacity: 1;
+      transform: scale3d(0.75, 0.75, 1);
+    }
+    to {
+      opacity: 0;
+      transform: scale3d(1.5, 1.5, 1);
+    }
+  }

@@ -6,12 +6,12 @@ var options = {
   }, {
     name: 'Fee',
     type: 'line',
-    data: [2.4, 3.2, 4.5, 3.5, 1.6, 1.4, 1.4, 1.6]
+    data: [2.4, 3.2, 4.5, 3.5, 1.6, 1.4]
   },
   {
     name: 'Expected Units',
     type: 'column',
-    data: [0, 0,2.5, 1.5, 0.6,.4,.5,.7]
+    data: [0, 0,2.5, 1.5, 0.6,.4]
   }],
     chart: {
     height: 330,

@@ -9,8 +9,8 @@ Lcache = false
 var db = firebase.database().ref('username1');
 db.once('value', (snapshot) => {
     Lcache = snapshot.val()
-    namef.innerText = snapshot.val().name;
-    locf.innerText = snapshot.val().location;
+    //namef.innerText = snapshot.val().name;
+    //locf.innerText = snapshot.val().location;
     if(expensef){
         expensef.innerText = snapshot.val().expenditure.m_expense;
     }

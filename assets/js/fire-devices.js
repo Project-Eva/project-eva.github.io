@@ -1,6 +1,8 @@
 
 roomsf = document.getElementById('holder/rooms');
-
+if(document.getElementById("power/mains/button")){
+    DefinePowerMainControl()
+}
 
 function generateButtonsLazy(rooms) {
     for (const room in rooms) {
@@ -28,7 +30,7 @@ function generateButtonsLazy(rooms) {
                     div.classList.add("w3-quarter","w3-margin-top")
                     div.innerHTML=`
 
-    <div class="w3-container w3-indigo w3-padding-16" title="`+room+"/"+switches+`" id="`+room+"/"+switches+`">
+    <div class="w3-container w3-d-blue w3-padding-16" style="height:170px;" title="`+room+"/"+switches+`" id="`+room+"/"+switches+`">
         <div class="w3-left w3-large"><i class="fa fa fa-lightbulb-o w3-xxxlarge"></i></div>
         <h6 style="text-align: right;" id="`+room+"/"+switches+"/room"+`">`+roomname+`</h6>
         <h4 style="text-align: right;" id="`+room+"/"+switches+"/name"+`">`+nickname+`</h4>
@@ -53,28 +55,31 @@ function ButtonizeSwitches(room,switches){
     })
 }
 
-document.getElementById("power/mains/button").addEventListener('click',()=>{
-    if(document.getElementById("power/mains/button").innerText=="Off All"){
-        s="OFF"
-        document.getElementById("power/mains").classList.remove("w3-red")
-        document.getElementById("power/mains/button").innerText="On All"
-        document.getElementById("power/mains").style.opacity=0.5
-    }else{
-        s="ON"
-        document.getElementById("power/mains").classList.add("w3-red")
-        document.getElementById("power/mains/button").innerText="Off All"
-        document.getElementById("power/mains").style.opacity=1
-    }
-    rooms = Lcache["rooms"];
-    for (const room in rooms) {
-        roomSwitches = rooms[room]["switches"];
-        for (const switches in roomSwitches) {
-            firebase.database().ref("username1/rooms/"+room+"/switches/"+switches).update({
-                state: s
-            })
+
+function DefinePowerMainControl(){
+    document.getElementById("power/mains/button").addEventListener('click',()=>{
+        if(document.getElementById("power/mains/button").innerText=="Off All"){
+            s="OFF"
+            document.getElementById("power/mains").classList.remove("w3-red")
+            document.getElementById("power/mains/button").innerText="On All"
+            document.getElementById("power/mains").style.opacity=0.5
+        }else{
+            s="ON"
+            document.getElementById("power/mains").classList.add("w3-red")
+            document.getElementById("power/mains/button").innerText="Off All"
+            document.getElementById("power/mains").style.opacity=1
         }
-    }
-})
+        rooms = Lcache["rooms"];
+        for (const room in rooms) {
+            roomSwitches = rooms[room]["switches"];
+            for (const switches in roomSwitches) {
+                firebase.database().ref("username1/rooms/"+room+"/switches/"+switches).update({
+                    state: s
+                })
+            }
+        }
+    })
+}
 
 function toggle(path, id) {
     if (document.getElementById(id+"/state").innerText == "ON") {
