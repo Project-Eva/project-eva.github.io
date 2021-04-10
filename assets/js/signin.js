@@ -15,7 +15,7 @@ function init(){
           // No user is signed in.
           userName.innerText = "Sign In";
           //email.innerText = "Sign In";
-          window.location.replace("/login/");
+          window.location.replace("https://elvistony.me/main-project/login/");
         }
     });
 }
@@ -23,7 +23,7 @@ function init(){
 function logOut(){
     firebase.auth().signOut().then(function(){
         console.log('success');
-        window.location.replace("/login/");
+        window.location.replace("https://elvistony.me/main-project/login/");
     },function(){})
 }
 
