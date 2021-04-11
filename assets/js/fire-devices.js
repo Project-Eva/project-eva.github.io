@@ -12,7 +12,7 @@ function generateButtonsLazy(rooms) {
             const element = roomSwitches[switches];
             console.log(element)
             var roomname = rooms[room]["nickname"];
-            firebase.database().ref('username1/rooms/' + room + "/switches/" + switches).on('value', (snap) => {
+            firebase.database().ref(UserID+'/rooms/' + room + "/switches/" + switches).on('value', (snap) => {
                 state = snap.val().state;
                 nickname = "Generic Device"
                 if("nickname" in snap.val()){
@@ -51,7 +51,7 @@ function generateButtonsLazy(rooms) {
 
 function ButtonizeSwitches(room,switches){
     document.getElementById(room+"/"+switches+"/state").addEventListener('click', () => {
-        toggle('username1/rooms/' + room + "/switches/" + switches, room +"/"+ switches);
+        toggle(UserID+'/rooms/' + room + "/switches/" + switches, room +"/"+ switches);
     })
 }
 
@@ -73,7 +73,7 @@ function DefinePowerMainControl(){
         for (const room in rooms) {
             roomSwitches = rooms[room]["switches"];
             for (const switches in roomSwitches) {
-                firebase.database().ref("username1/rooms/"+room+"/switches/"+switches).update({
+                firebase.database().ref(UserID+"/rooms/"+room+"/switches/"+switches).update({
                     state: s
                 })
             }

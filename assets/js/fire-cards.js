@@ -6,7 +6,7 @@ incomef = document.getElementById('holder/income');
 
 Lcache = false
 
-var db = firebase.database().ref('username1');
+var db = firebase.database().ref(UserID);
 db.once('value', (snapshot) => {
     Lcache = snapshot.val()
     //namef.innerText = snapshot.val().name;
@@ -39,7 +39,7 @@ function startUpTimeCounter(from){
     }
 }
 
-firebase.database().ref('username1/device-params/state').on('value',(snap)=>{
+firebase.database().ref(UserID+'/device-params/state').on('value',(snap)=>{
     if(statusf){
         statusf.innerText = snap.val();
         setTimeout(()=>{
