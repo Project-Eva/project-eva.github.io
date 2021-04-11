@@ -1,9 +1,7 @@
 //Button
 const voiceSearch = document.getElementById('eva-search');
-
 const voiceStatus = document.getElementById('eva-status');
 const voicebar = document.getElementsByName('eva-bar')[0];
-
 const voiceOutput = document.getElementById('eva-output');
 
 

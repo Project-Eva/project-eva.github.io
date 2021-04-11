@@ -1,14 +1,15 @@
 var hasInit = false;
 var firebaseConfig = {
-    apiKey: "AIzaSyDsJy7ZXM2114WjsAIvyYv9PsWpWjcqOKY",
-    authDomain: "homeautomation-406fd.firebaseapp.com",
-    databaseURL: "https://homeautomation-406fd.firebaseio.com",
-    projectId: "homeautomation-406fd",
-    storageBucket: "homeautomation-406fd.appspot.com",
-    messagingSenderId: "803752531879",
-    appId: "1:803752531879:web:ac8ad43c1c0d2953348882",
-    measurementId: "G-87QPN2H6DP"
+    apiKey: "AIzaSyBIVV5bNJenzy8jHN1R7Zm6S0V3OJs_M90",
+    authDomain: "project-eva-2021.firebaseapp.com",
+    databaseURL: "https://project-eva-2021-default-rtdb.firebaseio.com",
+    projectId: "project-eva-2021",
+    storageBucket: "project-eva-2021.appspot.com",
+    messagingSenderId: "852889768430",
+    appId: "1:852889768430:web:345cdf05826ec4bc0a7eff",
+    measurementId: "G-WQXK92L6RT"
 };
+
 if(!hasInit){
     firebase.initializeApp(firebaseConfig);
     hasInit = true;

@@ -18,7 +18,7 @@ expensef = document.getElementById('holder/expense');
 incomef = document.getElementById('holder/income');
 
 
-var db = firebase.database().ref('username1');
+var db = firebase.database().ref(UserID);
 db.once('value', (snapshot) => {
     namef.innerText = snapshot.val().name;
     locf.innerText = snapshot.val().location;
@@ -32,7 +32,7 @@ db.once('value', (snapshot) => {
     startUpTimeCounter(snapshot.val()["device-params"]["last-seen"])
 })
 
-firebase.database().ref('username1/device-params/state').on('value',(snap)=>{
+firebase.database().ref(UserID+'/device-params/state').on('value',(snap)=>{
     statusf.innerText = snap.val();
 })
 
@@ -44,7 +44,7 @@ function generateButtonsLazy(rooms) {
             const element = roomSwitches[switches];
             console.log(element)
             var roomname = rooms[room]["nickname"];
-            firebase.database().ref('username1/rooms/' + room + "/switches/" + switches).on('value', (snap) => {
+            firebase.database().ref(UserID+'/rooms/' + room + "/switches/" + switches).on('value', (snap) => {
                 state = snap.val().state;
                 nickname = "Generic Device"
                 if("nickname" in snap.val()){
@@ -82,7 +82,7 @@ function generateButtonsLazy(rooms) {
 
 function ButtonizeSwitches(room,switches){
     document.getElementById(room+"/"+switches+"/state").addEventListener('click', () => {
-        toggle('username1/rooms/' + room + "/switches/" + switches, room +"/"+ switches);
+        toggle(UserID+'/rooms/' + room + "/switches/" + switches, room +"/"+ switches);
     })
 }
 
