@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../assets/css/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../assets/css/custom.css">
+  <link rel="stylesheet" href="../assets/css/datatable.css">
 </head>
 
 <body class="w3-light-grey">
@@ -79,37 +80,49 @@
 
   <!-- !PAGE CONTENT! -->
   <div class="w3-main" style="margin-left:200px;margin-top:43px;">
-
     <div class="w3-panel">
       <div class="w3-row-padding" style="margin:0 -16px">
+    <!--Transactions Table-->
+    <div class="w3-container"><h2><b>Recent Transactions</b></h2></div>
+      <table class="w3-table-all w3-padding" id="first-datatable-output">
+        <thead>
+            <tr class="w3-indigo">
+                <td>Date</td>
+                <td>Category</td>
+                <td>Type</td>
+                <td>Amount</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="paging-first-datatable"></div>
+    </div>
         <div class="w3-twothird">
-          <h5>Finance Page ... under construction</h5>
           <div class="w3-block w3-white w3-round w3-padding">
             <div id="chart"></div>
           </div>
         </div>
-          <div class="w3-third">
-          <h5>Computed</h5>
-          
+          <div class="w3-third">          
           <div class="w3-container w3-d-blue w3-padding-16" style="height:140px;">
-            <div class="w3-left w3-large"><i class="fa fa-bolt w3-xxxlarge"></i></div>
-            <h6 style="text-align: right;">Average</h6>
-            <h3 style="text-align: right;">10.4 <small>Current Units</small></h3>
+            <div class="w3-left w3-large"><i class="fa fa-money w3-xxxlarge"></i></div>
+            <h6 style="text-align: right;">Monthly Expense</h6>
+            <h3 style="text-align: right;">Rs. 400/-</h3>
           </div>
 
           <div class="w3-container w3-d-blue w3-padding-16" style="height:140px;">
-            <div class="w3-left w3-large"><i class="fa fa-bolt w3-xxxlarge"></i></div>
-            <h6 style="text-align: right;">Peak Usage</h6>
-            <h3 style="text-align: right;">April 2021<small>(21 Units)</small></h3>
+            <div class="w3-left w3-large"><i class="fa fa-money w3-xxxlarge"></i></div>
+            <h6 style="text-align: right;">Monthly Income</h6>
+            <h3 style="text-align: right;">Rs. 1000</h3>
           </div>
 
           <div class="w3-container w3-d-blue w3-padding-16" style="height:140px;">
-            <div class="w3-left w3-large"><i class="fa fa-bolt w3-xxxlarge"></i></div>
-            <h6 style="text-align: right;">Average</h6>
-            <h3 style="text-align: right;">10.4 <small>Current Units</small></h3>
+            <div class="w3-left w3-large"><i class="fa fa-money w3-xxxlarge"></i></div>
+            <h6 style="text-align: right;">Average Expense</h6>
+            <h3 style="text-align: right;">Rs.360/-</h3>
           </div>
         </div>
       </div>
+      
     </div>
 
     <!-- End page content -->
@@ -124,5 +137,6 @@
 <script src="../assets/js/sidebar.js"></script>
 <script src="../assets/js/fire-cards.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script src="../assets/js/insights.js"></script>
+<script src="../assets/js/datatable.js"></script>
+<script src="../assets/js/ledger.js"></script>
 </html>

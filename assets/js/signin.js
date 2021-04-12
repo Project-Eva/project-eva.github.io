@@ -6,7 +6,7 @@ if (typeof(Storage) !== "undefined") {
   if(localStorage.userID){
     UserID=localStorage.userID;
   } 
-  console.log("Retrieving UserID",UserID,localStorage.userID)
+  console.log("Retrieving UserID",UserID)
 } else {
   console.log("Sorry, your browser does not support web storage...");
 }
@@ -21,7 +21,7 @@ function init(){
           UserID = user.uid;
           if (typeof(Storage) !== "undefined") {
             localStorage.userID = UserID;
-            console.log("Saving UserID",UserID,localStorage.userID)
+            console.log("Saving UserID",UserID)
           } else {
             console.log("Sorry, your browser does not support web storage...");
           }
@@ -29,17 +29,15 @@ function init(){
           // No user is signed in.
           userName.innerText = "Sign In";
           //email.innerText = "Sign In";
-          window.location.replace("https://elvistony.me/main-project/login/");
+          window.location.replace("/login/");
         }
     });
 }
 
-
-
 function logOut(){
     firebase.auth().signOut().then(function(){
         console.log('success');
-        window.location.replace("https://elvistony.me/main-project/login/");
+        window.location.replace("/login/");
     },function(){})
 }
 
