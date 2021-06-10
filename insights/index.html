@@ -8,8 +8,10 @@
   <meta name="description" content="Project Eva | Home Automation Project by Aditya, Elvis, Evelin, Fahima">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../assets/css/w3.css">
-  <link rel="stylesheet" href="../assets/css/css">
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/custom.css">
 </head>
 
@@ -20,7 +22,7 @@
   <div class="w3-bar w3-top w3-large" style="z-index:4;background-color: #D7DBDD;box-shadow:  0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
     <button onclick="NavMinimize()" id="nav-logo" style="width:200px;" class="w3-bar-item w3-d-blue w3-hover-d-blue w3-animation w3-button"> <b>Project Eva</b></button>
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"> &nbsp;</button>
-    <span class="w3-bar-item w3-right"><b><i class="fa fa-line-chart"></i> Insights</b></span>
+    <span class="w3-bar-item w3-right"><b><i class="material-icons fa-line-chart"></i> Insights</b></span>
   </div>
 
   <!-- Sidebar/menu -->
@@ -36,18 +38,18 @@
       </div>
     </div>
     <div class="w3-bar-block w3-margin-top">
-      <a href="../" class="w3-bar-item w3-nav w3-animation  w3-button w3-padding" title="Dashboard"><i class="fa fa fa-home fa-fw"></i>&nbsp; <span>Dashboard</span></a>
-      <a href="../control/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding" title="Switch Control"><i class="fa fa-toggle-on fa-fw"></i>&nbsp; <span>Switch Control</span></a>
-      <a href="../finance/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding" title="Finance"><i class="fa fa-money fa-fw"></i>&nbsp; <span>Finance</span></a>            
-      <a href="../insights/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding w3-nav-current" title="Insights"><i class="fa fa-line-chart fa-fw"></i>&nbsp; <span>Insights</span></a>
-      <a href="../device/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding" title="System"><i class="fa fa fa-desktop fa-fw"></i>&nbsp; <span>System</span></a>            
+      <a href="../" class="w3-bar-item w3-nav w3-animation  w3-button w3-padding" title="Dashboard"><i class="material-icons bar-icon">home</i>&nbsp; <span>Dashboard</span></a>
+      <a href="../control/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding" title="Switch Control"><i class="material-icons  bar-icon">toggle_on</i>&nbsp; <span>Switch Control</span></a>
+      <a href="../finance/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding" title="Finance"><i class="material-icons bar-icon">paid</i>&nbsp; <span>Finance</span></a>            
+      <a href="../insights/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding w3-nav-current" title="Insights"><i class="material-icons bar-icon">insights</i>&nbsp; <span>Insights</span></a>
+      <a href="../device/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding" title="System"><i class="material-icons bar-icon">cloud_download</i>&nbsp; <span>System</span></a>            
       <a href="../scan/" class="w3-bar-item w3-nav w3-animation w3-button w3-padding" title="Scan a Bill">Scan</a>            
       <button class="w3-bar-item w3-nav w3-animation w3-button w3-padding" onclick="(confirm('Logout from System?')?logOut():false)" title="Logout">Logout</button>
       <button class="w3-bar-item w3-nav w3-animation w3-button w3-padding w3-center"  title="EVA Assistant">
         <div class="w3-center" style="text-align: center;">
           <div style="width: fit-content;display: inline-block;">
             <div id="eva-search" class=" voice-eva">
-              <i class="fa fa-microphone"></i>
+              <i class="material-icons">mic</i>
             </div>
             <span>EVA Assistant</span>
           </div>
@@ -63,6 +65,11 @@
     <div class="w3-modal-content w3-round w3-padding">
       <div class="w3-container  w3-padding w3-center">
         <h3>Eva Assistant: <small id="eva-status" class="w3-indigo w3-text-white w3-padding w3-round">Loading...</small></h3>
+        <div class="w3-block w3-padding chat-container">
+          <p class="eva-chat">Hello There!</p>
+          <p class="you-chat">Hello Eva</p>
+        </div>
+        <button class="w3-button w3-small" id="eva-send" style="position: absolute;right: 5%;"><i class="material-icons">send</i></button>
         <input type="text" name="eva-bar" placeholder="Speak or type here..." class="w3-input w3-block w3-border">
         <p>Detected Action</p>
         <div id="eva-output" class="w3-container w3-padding w3-light-gray">
@@ -70,6 +77,9 @@
         </div>
       </div>
     </div>
+    <script src="../assets/js/whichx.js"></script>
+    <script src="../assets/js/eva-classifier.js"></script>
+    <script src="../assets/js/eva.js"></script>
     <script src="../assets/js/webspeech.js"></script>
   </div>
 
@@ -83,30 +93,68 @@
     <div class="w3-panel">
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-twothird">
-          <h5>Energy Monitoring</h5>
+          <h3 class="w3-center"><b>Energy Analysis</b></h3>
           <div class="w3-block w3-white w3-round w3-padding">
             <div id="chart"></div>
           </div>
         </div>
           <div class="w3-third">
-          <h5>Computed</h5>
+            <h3 class="w3-center"><b>Computed</b></h3>
           
           <div class="w3-container w3-d-blue w3-hover-d-blue w3-animation w3-padding-16" style="height:140px;">
-            <div class="w3-left w3-large"><i class="fa fa-bolt w3-xxxlarge"></i></div>
+            <div class="w3-left w3-large"><i class="material-icons w3-xxxlarge">bolt</i></div>
             <h6 style="text-align: right;">Average</h6>
-            <h3 style="text-align: right;">10.4 <small>Current Units</small></h3>
+            <h3 style="text-align: right;"><span class="field" id="energy/avg"></span><small> Current Units</small></h3>
           </div>
 
           <div class="w3-container w3-d-blue w3-hover-d-blue w3-animation w3-padding-16" style="height:140px;">
-            <div class="w3-left w3-large"><i class="fa fa-bolt w3-xxxlarge"></i></div>
+            <div class="w3-left w3-large"><i class="material-icons w3-xxxlarge">bolt</i></div>
             <h6 style="text-align: right;">Peak Usage</h6>
-            <h3 style="text-align: right;">April 2021<small>(21 Units)</small></h3>
+            <h3 style="text-align: right;"><span class="field" id="energy/peakMonth"></span><small>(<span class="field" id="energy/peakVal"></span> Units)</small></h3>
           </div>
 
           <div class="w3-container w3-d-blue w3-hover-d-blue w3-animation w3-padding-16" style="height:140px;">
-            <div class="w3-left w3-large"><i class="fa fa-bolt w3-xxxlarge"></i></div>
+            <div class="w3-left w3-large"><i class="material-icons w3-xxxlarge">bolt</i></div>
             <h6 style="text-align: right;">Previous Cycle Consumption</h6>
-            <h3 style="text-align: right;">14.0 <small>Current Units</small></h3>
+            <h3 style="text-align: right;"><span class="field" id="energy/prev"></span><small> Units</small></h3>
+          </div>
+        </div>
+      </div>
+      <div class="w3-container">
+        <h3 class="w3-center"><b>Consumption Pattern</b></h3>
+        <div class="w3-row-padding w3-margin-bottom"  id="holder/devices">
+          
+          <div class="w3-quarter w3-d-blue w3-animation w3-margin-top">
+            <div class="w3-container w3-light gray w3-padding-16">
+              <div class="w3-left  w3-large"><i class="material-icons fa fa-gamepad w3-text-gray w3-xxxlarge"></i></div>
+              <h6 style="text-align: right;">Generic Slot</h6>
+              <h4 style="text-align: right;">Free Slot</h4>
+            </div>
+          </div>
+          <div class="w3-quarter w3-d-blue w3-animation w3-margin-top">
+            <div class="w3-container w3-light gray w3-padding-16">
+              <div class="w3-left  w3-large"><i class="material-icons fa fa-gamepad w3-text-gray w3-xxxlarge"></i></div>
+              <h6 style="text-align: right;">Generic Slot</h6>
+              <h4 style="text-align: right;">Free Slot</h4>
+            </div>
+          </div>
+          
+        </div>
+        <div class="w3-row-padding">
+          <h3 class="w3-center"><b>Overview</b></h3>
+          <div class="w3-half w3-d-blue w3-hover-blue w3-border-right-white w3-animation w3-margin-top">
+            <div class="w3-container w3-light gray w3-padding-16">
+              <div class="w3-left  w3-large"><i class="material-icons w3-xxxlarge">account_tree</i></div>
+              <h6 style="text-align: right;">Effect of Connected Devices</h6>
+              <h4 style="text-align: right;"><span class="field" id="effect/devices"></span></h4>
+            </div>
+          </div>
+          <div class="w3-half w3-d-blue w3-hover-blue w3-border-right-white w3-animation w3-margin-top">
+            <div class="w3-container w3-light gray w3-padding-16">
+              <div class="w3-left  w3-large"><i class="material-icons w3-xxxlarge">power_off</i></div>
+              <h6 style="text-align: right;">Unmonitored Usage</h6>
+              <h4 style="text-align: right;"><span class="field" id="effect/total"></span></h4>
+            </div>
           </div>
         </div>
       </div>

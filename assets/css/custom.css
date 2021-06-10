@@ -11,6 +11,66 @@
   body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
+*{
+  transition: 0.4s ease;
+}
+table input,table select{
+  height: 30px;
+  border: none;
+  background: none;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  outline: none;
+}
+
+.form-input{
+  height: 40px;
+  background: none;
+}
+
+.form-border-left{
+  background: none;
+  border: none;
+  border-left: 5px solid #154360;
+  outline: none;
+}
+
+.form-input-title{
+  font-weight: bold;
+  color: gray;
+}
+
+
+.w3-border-right-white{
+  border-right: 1px solid white;
+}
+
+.w3-switch-scheduler{
+  font-size: 1.5em;
+  height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 0px !important;
+    height: 50px;
+    border-radius: 50% 50% 50% 0;
+    /* position: absolute;
+    bottom: 0;
+    left: 0; */
+    border: 1px solid;
+}
+
+.w3-switch-toggler{
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  padding: 0px !important;
+  height: 50px;
+    border-radius: 50% 50% 0;
+    /* position: absolute;
+    bottom: 0;
+    right: 0; */
+}
+
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
   background-color: #555;
@@ -245,7 +305,7 @@
 }
 
 .w3-d-blue{
-    background-color: #154360 ;
+    background-color: #154360 !important;
     color: white  !important;
 }
 
@@ -557,3 +617,65 @@ height: 4px;
 border-radius: 50%;
 background: white;
 }*/
+
+.material-icons{
+  font-size: 19px;
+}
+
+.bar-icon{
+  font-size: 30px;
+  position: relative;
+    bottom: -5px;
+    text-align: center;
+}
+
+/* .w3-modal {
+  z-index: 3;
+  display: none;
+  padding-top: 100px;
+  position: fixed;
+  right: 0;
+  left: 80px;
+  top: 0;
+  width: 91%;
+  height: 100%;
+  overflow: auto;
+  /* background-color: rgb(0,0,0); */
+  /* background-color: rgba(0,0,0,0.1) 
+} */
+
+.w3-modal-content{
+  height: 90% !important;
+}
+
+.eva-chat{
+  text-align: left;
+    color: #154360;
+    font-weight: 600;
+}
+
+.eva-chat::before{
+  content: "Eva: ";
+  color:#2196F3;
+}
+
+.you-chat{
+  text-align: right;
+    color: #154360;
+    font-weight: 600;
+}
+.you-chat::before{
+  content: "You: ";
+  color:#2196F3;
+}
+
+.chat-container{
+  height: 250px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.field{
+  font-weight: bold;
+  color: deepskyblue;
+}

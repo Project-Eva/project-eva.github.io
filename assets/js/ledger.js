@@ -1,5 +1,3 @@
-
-
 eve = false;
 var db = firebase.database().ref('GPDPROlOwsX9aAWDcM54y6jzDY12');
 db.once('value',(s)=>{
@@ -27,7 +25,6 @@ function DoSomething(){
         bill = list[keys[i]];
         console.log(bill);
         actualList.push([bill.date,bill.category,bill.type,bill.amount])
-        
         // Is it this year ?
         //today.getFullYear()
         billYear = "1999"==new Date(bill.date).getFullYear()
@@ -42,7 +39,6 @@ function DoSomething(){
                 MonthIncome+=bill.amount*1
             }
         }
-
         
     }
     RenderTable(actualList);
