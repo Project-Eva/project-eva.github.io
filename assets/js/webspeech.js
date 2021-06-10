@@ -1,48 +1,5 @@
-//Button
-const voiceSearch = document.getElementById('eva-search');
-const voiceStatus = document.getElementById('eva-status');
-const voicebar = document.getElementsByName('eva-bar')[0];
-const voiceOutput = document.getElementById('eva-output');
 
 
-
-
-SpeechRecognition=false
-recognition = false
-IdleMode = false
-var SpeechGrammarList = false
-var speechRecognitionList = false
-
-function InitializeSpeech(){
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition; // if none exists -> undefined
-    if(SpeechRecognition){
-        recognition = new SpeechRecognition();
-        recognition.continuous = true;
-        SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-        if(SpeechGrammarList){
-            speechRecognitionList = new SpeechGrammarList();
-            speechRecognitionList.addFromString(grammar, 1);
-            recognition.grammars = speechRecognitionList;
-        }
-
-        recognition.addEventListener("start", ()=>{
-            voiceStatus.innerText = "Listening...";
-            voiceOutput.innerText = "Listening...";
-        });
-
-        recognition.addEventListener("end", ()=>{
-            voiceStatus.innerText = "Stopped";
-            voiceOutput.innerText = "Stopped";
-            console.log("Stopped Listening");
-        });
-
-        recognition.addEventListener("result", getText);
-    }else{
-        console.log("Browser Doesn't Support Speech Recognition.")
-        voiceOutput.innerText = "Browser Doesn't Support Speech Recognition."
-        voiceStatus.innerText = "Error - Not Supported"
-    }
-}
 
 triggers = {
     "switches":["turn","switch","make","put","start","stop"],
@@ -121,53 +78,23 @@ function getText(event){
     }
 }
 
-function SpeechToText(){
-        if(!SpeechRecognition){
-            InitializeSpeech();
-        }
-        recognition.start();
-}
 
-var modal = document.getElementById('eva-modal');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    VoiceModalClose()
-  }
-}
 
-function VoiceModalClose(){
-    modal.style.opacity = 0;
-    setTimeout(()=>{
-      modal.style.display = "none";
-      modal.style.opacity = 1;
-    },2000)
-    //recognition.stop();
-}
+// voiceSearch.addEventListener('click',()=>{
+//     if(!IdleMode){
+//         VoiceModalOpen();
+//         SpeechToText();
+//         if(!voiceSearch.classList.contains("voice-active")){
+//             voiceSearch.classList.add("voice-active");
+//         }
+//     }else{
+//         IdleMode=false;
+//         recognition.stop();
+//         VoiceModalClose();
+//         if(voiceSearch.classList.contains("voice-active")){
+//             voiceSearch.classList.remove("voice-active");
+//         }
+//     }
+// })
 
-voiceSearch.addEventListener('click',()=>{
-    if(!IdleMode){
-        VoiceModalOpen();
-        SpeechToText();
-        if(!voiceSearch.classList.contains("voice-active")){
-            voiceSearch.classList.add("voice-active");
-        }
-    }else{
-        IdleMode=false;
-        recognition.stop();
-        VoiceModalClose();
-        if(voiceSearch.classList.contains("voice-active")){
-            voiceSearch.classList.remove("voice-active");
-        }
-    }
-})
-
-function VoiceModalOpen(){
-    modal.style.opacity = 0;
-    modal.style.display = "block";
-    setTimeout(()=>{
-      
-      modal.style.opacity = 1;
-    },100)
-}

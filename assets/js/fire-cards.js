@@ -20,11 +20,14 @@ db.once('value', (snapshot) => {
     if(statusf){
         statusf.innerText = snapshot.val()["device-params"]["state"];
     }
-    db.child("device-params/").update({
+    firebase.database().ref(UserID).child("device-params/").update({
         state: "Pinging"
     })
     if(document.getElementById('holder/rooms')){
         generateButtonsLazy(snapshot.val().rooms)
+    }
+    if(document.getElementById('holder/schedules')){
+        generateSchedulesLazy(snapshot.val().schedules)
     }
     startUpTimeCounter(snapshot.val()["device-params"]["last-seen"])
 })

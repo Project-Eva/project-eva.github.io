@@ -16,7 +16,7 @@ function init(){
           // User is signed in.
           userName.innerText = user.displayName;
           //email.innerText = user.email;
-          console.log(user)
+          // console.log(user)
           profile.src = user.photoURL;
           UserID = user.uid;
           if (typeof(Storage) !== "undefined") {

@@ -73,7 +73,7 @@ function MaxiBar(){
 function SavePref() {
     if (typeof(Storage) !== "undefined") {
         localStorage.MiniBar = navSmall;
-        console.log("Saving Navsmall",navSmall,localStorage.MiniBar)
+        // console.log("Saving Navsmall",navSmall,localStorage.MiniBar)
     } else {
         console.log("Sorry, your browser does not support web storage...");
     }
@@ -84,11 +84,11 @@ function RunPref(){
         if (localStorage.MiniBar) {
             if(navSmall!=localStorage.MiniBar){
                 navSmall=(localStorage.MiniBar==="true"?true:false);
-                console.log("Retrieving Navsmall",navSmall,localStorage.MiniBar)
+                // console.log("Retrieving Navsmall",navSmall,localStorage.MiniBar)
                 if(navSmall){
-                    console.log("Doing Navsmall",navSmall,localStorage.MiniBar);
+                    // console.log("Doing Navsmall",navSmall,localStorage.MiniBar);
                     MiniBar()
-                    console.log("Minimizing")
+                    // console.log("Minimizing")
                 }
             }
             

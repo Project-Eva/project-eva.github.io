@@ -7,6 +7,7 @@ if(document.getElementById("power/mains/button")){
 function generateButtonsLazy(rooms) {
     for (const room in rooms) {
         roomSwitches = rooms[room]["switches"];
+        powerOfDevices={ }
         
         for (const switches in roomSwitches) {
             const element = roomSwitches[switches];
@@ -30,13 +31,13 @@ function generateButtonsLazy(rooms) {
                     div.classList.add("w3-quarter","w3-margin-top")
                     div.innerHTML=`
 
-    <div class="w3-container w3-d-blue w3-padding-16" style="height:170px;" title="`+room+"/"+switches+`" id="`+room+"/"+switches+`">
-        <div class="w3-left w3-large"><i class="fa fa fa-lightbulb-o w3-xxxlarge"></i></div>
+    <div class="w3-container w3-d-blue w3-padding-16" style="height:170px;position:relative;"  title="`+room+"/"+switches+`" id="`+room+"/"+switches+`">
+        <div class="w3-left w3-large"><i class="material-icons w3-xxxlarge">light</i></div>
         <h6 style="text-align: right;" id="`+room+"/"+switches+"/room"+`">`+roomname+`</h6>
         <h4 style="text-align: right;" id="`+room+"/"+switches+"/name"+`">`+nickname+`</h4>
-        <div class="w3-container">
-            <button class="w3-hover-indigo w3-button" ><i class="fa  fa-pencil w3-center"></i></button>
-            <button id="`+room+"/"+switches+"/state"+`" class=" w3-right `+(state=="ON" ? "w3-white":"")+` w3-button w3-small w3-border w3-padding" >`+state+`</button>
+        <div class="w3-container" >
+            <button class="w3-button w3-switch-scheduler" onclick="addNewSchedule('`+room+"/"+switches+`')" title="Schedule ON/OFF Time"><i class="material-icons w3-center">timer</i></button>
+            <button id="`+room+"/"+switches+"/state"+`" class=" w3-right `+(state=="ON" ? "w3-white":"")+` w3-button w3-small w3-border w3-switch-toggler" >`+state+`</button>
         </div>
     </div>
 `;
