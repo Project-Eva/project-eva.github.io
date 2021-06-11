@@ -1,5 +1,6 @@
 
 roomsf = document.getElementById('holder/rooms');
+
 if(document.getElementById("power/mains/button")){
     DefinePowerMainControl()
 }
@@ -55,7 +56,6 @@ function ButtonizeSwitches(room,switches){
         toggle(UserID+'/rooms/' + room + "/switches/" + switches, room +"/"+ switches);
     })
 }
-
 
 function DefinePowerMainControl(){
     document.getElementById("power/mains/button").addEventListener('click',()=>{
