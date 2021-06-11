@@ -145,7 +145,7 @@ function NavAction(path){
     say ("Navigating to "+pages[path]+" page");
     parsed = pages[path]
     setTimeout(()=>{
-        location.replace("http://localhost:5500/"+parsed)
+        location.replace("https://project-eva.github.io/"+parsed)
     },2000)
 }
 

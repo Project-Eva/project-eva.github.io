@@ -112,7 +112,6 @@ function PeakOfPower(bills,year = new Date()){
   return [peak_power,peak_month];
 }
 
-
 function movingAvg(array, count, qualifier=function(val){ return val != 0; }){
     
   // calculate average for subarray

@@ -9,7 +9,7 @@ db.once('value',(s)=>{
 
 function LoadData(){
     listOfBills = Object.values(eve.val())
-    listOfBills.pop()
+    // listOfBills.pop()
     console.log(listOfBills);
     nativeList = [];
     for (var bill of listOfBills){
@@ -25,8 +25,6 @@ function LoadData(){
     setValues(values[2],values[1],peaks,nextDate)
     GetLists()
 }
-
-
 
 function CalculateAllAverage(bills){
     var TotalIncome = 0
@@ -121,7 +119,6 @@ function GetGasNextBookDate(listOfBills){
     }
 }
 
-
 // Set DOM values
 function setValues(totals,averages,peaks,dates){
     // Household
@@ -178,8 +175,6 @@ function segregate(listOfBills){
     // console.log("Bills:",bills)
     return bills;
 }
-
-
 
 function RenderTable(list){
     // console.log(list)
@@ -289,20 +284,17 @@ function GetLists(){
     CreateChart(electricity,gas,totals)
 }
 
-// TODO fix chart in finance
-
-
 // Chart Begins
-function movingAverage(array, countBefore, countAfter) {
-    if (countAfter == undefined) countAfter = 0;
-    const result = [];
-    for (let i = 0; i < array.length; i++) {
-      const subArr = array.slice(Math.max(i - countBefore, 0), Math.min(i + countAfter + 1, array.length));
-      const avg = subArr.reduce((a, b) => a + (isNaN(b) ? 0 : b), 0) / subArr.length;
-      result.push(avg.toFixed(2));
-    }
-    return result;
-  }
+// function movingAverage(array, countBefore, countAfter) {
+//     if (countAfter == undefined) countAfter = 0;
+//     const result = [];
+//     for (let i = 0; i < array.length; i++) {
+//       const subArr = array.slice(Math.max(i - countBefore, 0), Math.min(i + countAfter + 1, array.length));
+//       const avg = subArr.reduce((a, b) => a + (isNaN(b) ? 0 : b), 0) / subArr.length;
+//       result.push(avg.toFixed(2));
+//     }
+//     return result;
+//   }
 
 function CreateChart(electricity,gas,totals){
     var options = {
