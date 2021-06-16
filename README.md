@@ -1,2 +1,3 @@
-## Eva-Home Automation
-Smart Home powered by Virtual Assistant
+## Project EVA  | Home Automation System
+A Simple yet Intuitive Smart Home Implementation with a few perks!
+
